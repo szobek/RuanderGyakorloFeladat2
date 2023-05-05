@@ -13,6 +13,7 @@ static List<Versenyzo> versenyzok = new ArrayList<Versenyzo>();
 		feladatok.rajtszam(versenyzok);
 		feladatok.listGbrs(versenyzok);
 		feladatok.startName(versenyzok);
+		feladatok.writeFile(versenyzok);
 	}
 
 }

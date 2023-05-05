@@ -1,7 +1,14 @@
 package forma1;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Feladatok {
@@ -54,6 +61,31 @@ public class Feladatok {
 			}
 		}
 		
+	}
+	
+	public void writeFile(List<Versenyzo> versenyzok) {
+		Map<String, Integer> lista = new HashMap<String,Integer>();
+		for (Versenyzo versenyzo : versenyzok) {
+			  
+			  if (lista.containsKey(versenyzo.getCountryCode())) {
+				  
+				  lista.replace(versenyzo.getCountryCode(), lista.get(versenyzo.getCountryCode())+1);
+				  
+			  }
+			  else {
+				  
+				  lista.put(versenyzo.getCountryCode(), 1);
+			  }
+			  
+		  }
+		try {
+			new FileHandling().writeFile(lista);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println("Fájlba írás kész");
 	}
 	
 }

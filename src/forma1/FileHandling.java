@@ -3,10 +3,13 @@ package forma1;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 public class FileHandling {
 
@@ -28,6 +31,21 @@ public class FileHandling {
 		}
 		
 		System.out.println("Sikeres fájl olvasás");
+		
+	}
+	
+	public void writeFile(Map<String, Integer> lista) throws IOException {
+		OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("orszagok.csv"),"UTF-8");
+		for (Map.Entry<String,Integer> orszagLetszam : lista.entrySet()) {
+			  
+			  if (orszagLetszam.getValue()>1) {
+				  
+				  writer.write(orszagLetszam.getKey()+";"+orszagLetszam.getValue()+"\n");
+				  
+			  }
+			  
+		  }
+		writer.close();
 		
 	}
 }
