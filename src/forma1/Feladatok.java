@@ -46,4 +46,14 @@ public class Feladatok {
 		}
 	}
 	
+	public void startName(List<Versenyzo> versenyzok) {
+		System.out.println("6. feladat");
+		for(Versenyzo versenyzo:versenyzok) {
+			if(versenyzo.getName().split(" ")[1].charAt(0)=='H') {
+				System.out.println(versenyzo.getName()+" "+versenyzo.getRajtszam());
+			}
+		}
+		
+	}
+	
 }
