@@ -23,4 +23,16 @@ public class Versenyzo {
 		return "Versenyzõ rajtszáma: " + rajtszam + ", országkódja: " + countryCode + ", neve: " + name;
 	}
 
+	public int getRajtszam() {
+		return rajtszam;
+	}
+
+	public String getCountryCode() {
+		return countryCode;
+	}
+
+	public String getName() {
+		return name;
+	}
+
 }
