@@ -11,7 +11,7 @@ static List<Versenyzo> versenyzok = new ArrayList<Versenyzo>();
 		feladatok.olvasas(versenyzok);
 		feladatok.adatok(versenyzok);
 		feladatok.rajtszam(versenyzok);
-		
+		feladatok.listGbrs(versenyzok);
 	}
 
 }
