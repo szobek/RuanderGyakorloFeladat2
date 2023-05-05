@@ -13,39 +13,38 @@ import java.util.Map;
 
 public class FileHandling {
 
-	public void readFile(String file,String delimiter,List<Versenyzo> lista) {
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));){
-			
+	public void readFile(String file, String delimiter, List<Versenyzo> lista) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));) {
+
 			br.readLine();
-			while(br.ready()) {
+			while (br.ready()) {
 				lista.add(new Versenyzo(br.readLine().split(delimiter)));
 			}
-			
-			
-		} catch (UnsupportedEncodingException | FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+
+		} catch (UnsupportedEncodingException e) {
+			System.out.println("Rossz fájl kódolás");
+		} catch (FileNotFoundException e) {
+			System.out.println("Nincs ilyen fájl!!");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("I/O hiba");
 		}
-		
+
 		System.out.println("Sikeres fájl olvasás");
-		
+
 	}
-	
+
 	public void writeFile(Map<String, Integer> lista) throws IOException {
-		OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("orszagok.csv"),"UTF-8");
-		for (Map.Entry<String,Integer> orszagLetszam : lista.entrySet()) {
-			  
-			  if (orszagLetszam.getValue()>1) {
-				  
-				  writer.write(orszagLetszam.getKey()+";"+orszagLetszam.getValue()+"\n");
-				  
-			  }
-			  
-		  }
+		OutputStreamWriter writer = new OutputStreamWriter(new FileOutputStream("orszagok.csv"), "UTF-8");
+		for (Map.Entry<String, Integer> orszagLetszam : lista.entrySet()) {
+
+			if (orszagLetszam.getValue() > 1) {
+
+				writer.write(orszagLetszam.getKey() + ";" + orszagLetszam.getValue() + "\n");
+
+			}
+
+		}
 		writer.close();
-		
+
 	}
 }
